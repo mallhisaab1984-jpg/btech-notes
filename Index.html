@@ -1,0 +1,394 @@
+# B.tech-notes.
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Tech Notes Hub - Free Engineering Study Material</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Replace G-XXXXXXXXXX with your actual Google Analytics Measurement ID later
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#1e3a8a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 text-white p-2.5 rounded-xl shadow-md">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent leading-tight">B.Tech Notes Hub</h1>
+                    <p class="text-xs text-slate-500 font-medium">Syllabus Aligned: MRSPTU | IKGPTU</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+                    <span class="w-2 h-2 mr-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Free Trial Active
+                </span>
+                <a href="#custom-upload" class="hidden sm:inline-flex items-center px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition shadow-sm">
+                    <i class="fa-solid fa-cloud-arrow-up mr-1.5"></i> Add PDF
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Banner / Intro -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 rounded-2xl text-white p-6 md:p-10 mb-8 shadow-xl relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl">
+                <span class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium text-blue-200 mb-3 border border-white/10">
+                    <i class="fa-solid fa-book-open mr-1.5"></i> B.Tech Exam Preparedness Notes
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
+                    B.Tech Chapter Summaries & Important University Questions
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    Handcrafted, concise unit-wise notes covering core derivation steps, formula sheets, and top-priority exam questions specifically tailored for MRSPTU Bathinda, IKGPTU Jalandhar, and allied engineering universities.
+                </p>
+                
+                <div class="flex flex-wrap gap-3">
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-2 rounded-lg border border-white/10 text-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> Unit 1 Free Trial
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-2 rounded-lg border border-white/10 text-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> Hand-curated Quality
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-3.5 py-2 rounded-lg border border-white/10 text-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> Direct PDF Downloads
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category & Branch Selector -->
+        <section class="mb-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-800">Select Engineering Branch / Year</h3>
+                    <p class="text-xs text-slate-500">Filter notes according to your current B.Tech semester curriculum</p>
+                </div>
+
+                <!-- Course Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button onclick="filterBranch('all')" class="branch-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition">All Notes</button>
+                    <button onclick="filterBranch('1st-year')" class="branch-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition">B.Tech 1st Year (Common)</button>
+                    <button onclick="filterBranch('cse')" class="branch-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition">B.Tech CSE / IT</button>
+                    <button onclick="filterBranch('ece')" class="branch-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition">B.Tech ECE / EE</button>
+                </div>
+            </div>
+
+            <!-- Notes Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="notes-grid">
+                
+                <!-- Card 1: Semiconductor Physics -->
+                <div class="note-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition duration-200 overflow-hidden flex flex-col" data-branch="1st-year">
+                    <div class="p-5 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-blue-50 text-blue-700 font-semibold rounded-md text-[11px] uppercase tracking-wide">B.Tech 1st Year</span>
+                            <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Unit 1 Free Trial</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-800 mb-1">Semiconductor Physics</h4>
+                        <p class="text-xs text-slate-500 mb-3">Code: BPHS-101 | MRSPTU / IKGPTU</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-lg mb-4 text-xs text-slate-600 space-y-1">
+                            <p class="font-semibold text-slate-700 mb-1">Unit 1 Covered Highlights:</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Intrinsic & Extrinsic Semiconductors</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Fermi-Dirac Distribution Function</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Hall Effect Derivation & Numerical</p>
+                        </div>
+                    </div>
+                    <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="previewNotes('Semiconductor Physics Unit 1', 'Covers energy bands, Fermi level derivation, carrier concentration, and top 5 university exam questions.')" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                            <i class="fa-solid fa-eye mr-1"></i> Preview Notes
+                        </button>
+                        <button onclick="trackDownload('Semiconductor Physics Unit 1')" class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md transition shadow-sm flex items-center">
+                            <i class="fa-solid fa-download mr-1.5"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Basic Electrical Engineering -->
+                <div class="note-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition duration-200 overflow-hidden flex flex-col" data-branch="1st-year ece">
+                    <div class="p-5 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 font-semibold rounded-md text-[11px] uppercase tracking-wide">B.Tech 1st Year</span>
+                            <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Unit 1 Free Trial</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-800 mb-1">Basic Electrical Engineering</h4>
+                        <p class="text-xs text-slate-500 mb-3">Code: BEEE-101 | DC Circuits & Theorems</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-lg mb-4 text-xs text-slate-600 space-y-1">
+                            <p class="font-semibold text-slate-700 mb-1">Unit 1 Covered Highlights:</p>
+                            <p><i class="fa-solid fa-angle-right text-indigo-500 mr-1"></i> KVL & KCL Nodal Analysis</p>
+                            <p><i class="fa-solid fa-angle-right text-indigo-500 mr-1"></i> Thevenin & Norton Theorem Steps</p>
+                            <p><i class="fa-solid fa-angle-right text-indigo-500 mr-1"></i> Superposition & Max Power Transfer</p>
+                        </div>
+                    </div>
+                    <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="previewNotes('Basic Electrical Unit 1', 'Detailed step-by-step circuit solved examples, Norton transformation, and loop analysis formulas.')" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                            <i class="fa-solid fa-eye mr-1"></i> Preview Notes
+                        </button>
+                        <button onclick="trackDownload('Basic Electrical Unit 1')" class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md transition shadow-sm flex items-center">
+                            <i class="fa-solid fa-download mr-1.5"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Engineering Mathematics - I -->
+                <div class="note-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition duration-200 overflow-hidden flex flex-col" data-branch="1st-year">
+                    <div class="p-5 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-blue-50 text-blue-700 font-semibold rounded-md text-[11px] uppercase tracking-wide">B.Tech 1st Year</span>
+                            <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Unit 1 Free Trial</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-800 mb-1">Engineering Mathematics - I</h4>
+                        <p class="text-xs text-slate-500 mb-3">Code: BMTH-101 | Calculus & Matrices</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-lg mb-4 text-xs text-slate-600 space-y-1">
+                            <p class="font-semibold text-slate-700 mb-1">Unit 1 Covered Highlights:</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Rolle's & Mean Value Theorems</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Partial Derivatives & Euler's Theorem</p>
+                            <p><i class="fa-solid fa-angle-right text-blue-500 mr-1"></i> Maxima & Minima of Two Variables</p>
+                        </div>
+                    </div>
+                    <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="previewNotes('Engineering Mathematics Unit 1', 'Handwritten derivatives formulas, proofs, and repeated university question patterns.')" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                            <i class="fa-solid fa-eye mr-1"></i> Preview Notes
+                        </button>
+                        <button onclick="trackDownload('Engineering Mathematics Unit 1')" class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md transition shadow-sm flex items-center">
+                            <i class="fa-solid fa-download mr-1.5"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Data Structures & Algorithms -->
+                <div class="note-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition duration-200 overflow-hidden flex flex-col" data-branch="cse">
+                    <div class="p-5 flex-grow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-purple-50 text-purple-700 font-semibold rounded-md text-[11px] uppercase tracking-wide">B.Tech CSE</span>
+                            <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Unit 1 Free Trial</span>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-800 mb-1">Data Structures & Algorithms</h4>
+                        <p class="text-xs text-slate-500 mb-3">Code: BCSE-301 | Core CSE Curriculum</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-lg mb-4 text-xs text-slate-600 space-y-1">
+                            <p class="font-semibold text-slate-700 mb-1">Unit 1 Covered Highlights:</p>
+                            <p><i class="fa-solid fa-angle-right text-purple-500 mr-1"></i> Time & Space Complexity (Big-O)</p>
+                            <p><i class="fa-solid fa-angle-right text-purple-500 mr-1"></i> Arrays, Stacks, & Queues Operations</p>
+                            <p><i class="fa-solid fa-angle-right text-purple-500 mr-1"></i> Infix to Postfix Algorithm Steps</p>
+                        </div>
+                    </div>
+                    <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="previewNotes('Data Structures Unit 1', 'Clean diagrams for stack implementation, queue expressions, and big-O notation quick notes.')" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                            <i class="fa-solid fa-eye mr-1"></i> Preview Notes
+                        </button>
+                        <button onclick="trackDownload('Data Structures Unit 1')" class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md transition shadow-sm flex items-center">
+                            <i class="fa-solid fa-download mr-1.5"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+                <!-- Custom Upload Section for Real PDF -->
+        <section id="custom-upload" class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 mb-8 shadow-sm">
+            <div class="max-w-2xl">
+                <h3 class="text-lg font-bold text-slate-800 mb-1">Attach & Test Your Unit 1 PDF File</h3>
+                <p class="text-xs text-slate-500 mb-4">You can attach your actual PDF notes here to preview and download directly on this page.</p>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Note Title / Subject</label>
+                        <input type="text" id="pdf-title" placeholder="e.g. Basic Electrical - Unit 1 Handcrafted Notes" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Select PDF File</label>
+                        <input type="file" id="pdf-file" accept="application/pdf" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    </div>
+                    <button onclick="uploadCustomPDF()" class="px-4 py-2 bg-slate-900 text-white text-xs font-semibold rounded-lg hover:bg-slate-800 transition shadow-sm">
+                        <i class="fa-solid fa-plus mr-1"></i> Add Custom PDF to List
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus WhatsApp / Telegram QR Section -->
+        <section class="bg-blue-50 rounded-2xl border border-blue-100 p-6 md:p-8 text-center">
+            <h3 class="text-lg font-bold text-blue-900 mb-2">Want Remaining Units & Full Question Banks?</h3>
+            <p class="text-xs text-slate-600 max-w-lg mx-auto mb-6">Join our official campus study group on WhatsApp and Telegram for complete syllabus summaries, previous year solved papers, and updates.</p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#" onclick="gtag('event', 'click_whatsapp_group');" class="inline-flex items-center px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition shadow-sm">
+                    <i class="fa-brands fa-whatsapp text-base mr-2"></i> Join WhatsApp Group
+                </a>
+                <a href="#" onclick="gtag('event', 'click_telegram_channel');" class="inline-flex items-center px-4 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold rounded-xl transition shadow-sm">
+                    <i class="fa-brands fa-telegram text-base mr-2"></i> Join Telegram Channel
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+            <p>© 2026 B.Tech Notes Hub. Designed for Engineering Students across MRSPTU, IKGPTU & Affiliated Colleges.</p>
+        </div>
+    </footer>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h4 id="modal-title" class="text-base font-bold text-slate-800 mb-2">Sample Preview</h4>
+            <p id="modal-body" class="text-xs text-slate-600 leading-relaxed mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                Sample preview notes details...
+            </p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Close</button>
+                <button onclick="alert('Starting Unit 1 PDF Download...')" class="px-4 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg">Download Unit 1 PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Branch Filter Logic
+        function filterBranch(branch) {
+            const cards = document.querySelectorAll('.note-card');
+            const buttons = document.querySelectorAll('.branch-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-300');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            cards.forEach(card => {
+                if (branch === 'all' || card.dataset.branch.includes(branch)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Preview
+        function previewNotes(title, summary) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = summary;
+            document.getElementById('preview-modal').classList.remove('hidden');
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'preview_notes', { 'note_name': title });
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('preview-modal').classList.add('hidden');
+        }
+
+        // Track PDF Downloads
+        function trackDownload(subjectName) {
+            alert('Downloading Unit 1 Free Trial: ' + subjectName);
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'pdf_download', {
+                    'event_category': 'Notes Download',
+                    'event_label': subjectName
+                });
+            }
+        }
+
+        // Upload Custom PDF Dynamically
+        function uploadCustomPDF() {
+            const titleInput = document.getElementById('pdf-title').value;
+            const fileInput = document.getElementById('pdf-file').files[0];
+
+            if (!titleInput || !fileInput) {
+                alert('Please enter a title and select a PDF file.');
+                return;
+            }
+
+            const grid = document.getElementById('notes-grid');
+            const fileURL = URL.createObjectURL(fileInput);
+
+            const newCard = document.createElement('div');
+            newCard.className = 'note-card bg-white rounded-xl border border-blue-300 shadow-sm hover:shadow-md transition duration-200 overflow-hidden flex flex-col';
+            newCard.dataset.branch = '1st-year cse ece';
+            newCard.innerHTML = `
+                <div class="p-5 flex-grow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 font-semibold rounded-md text-[11px] uppercase tracking-wide">Custom Upload</span>
+                        <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Unit 1 Free Trial</span>
+                    </div>
+                    <h4 class="text-base font-bold text-slate-800 mb-1">${titleInput}</h4>
+                    <p class="text-xs text-slate-500 mb-3">Uploaded File: ${fileInput.name}</p>
+                    <div class="bg-slate-50 p-3 rounded-lg mb-4 text-xs text-slate-600">
+                        <p><i class="fa-solid fa-file-pdf text-red-500 mr-1.5"></i> Custom added PDF study note ready for free trial download.</p>
+                    </div>
+                </div>
+                <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                    <a href="${fileURL}" target="_blank" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition">
+                        <i class="fa-solid fa-eye mr-1"></i> Open PDF
+                    </a>
+                    <a href="${fileURL}" download="${fileInput.name}" onclick="trackDownload('${titleInput}')" class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md transition shadow-sm flex items-center">
+                        <i class="fa-solid fa-download mr-1.5"></i> Download PDF
+                    </a>
+                </div>
+            `;
+
+            grid.prepend(newCard);
+            alert('Your PDF note has been added to the top of the list!');
+            document.getElementById('pdf-title').value = '';
+            document.getElementById('pdf-file').value = '';
+        }
+    </script>
+</body>
+</html>
